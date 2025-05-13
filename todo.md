@@ -1,0 +1,35 @@
+# Lista de Tarefas: Desenvolvimento do Novo Site AGC+
+
+- [x] **Configuração Inicial do Projeto Next.js (agcplus-new-site)**
+  - [x] Verificar e configurar Tailwind CSS.
+  - [x] Configurar fontes Poppins e Roboto Mono.
+  - [x] Definir paleta de cores AGC+ no Tailwind config.
+- [ ] **Desenvolvimento dos Componentes da Landing Page (Reutilizando/Adaptando do Blueprint)**
+  - [x] Criar componente: Barra de Navegação (Seção 0)
+  - [x] Criar componente: Hero Section (Seção 1)
+  - [x] Criar componente: Seção Problema / Dor (Seção 2)
+  - [x] Criar componente: Seção Apresentação da Solução AGC+ (Seção 3)
+  - [x] Criar componente: Seção Diferenciais Chave (Seção 4)
+  - [x] Criar componente: Seção Prova Social (Seção 5)
+  - [x] Criar componente: Seção Chamada para Ação Final (Seção 6)
+  - [x] Criar componente: Formulário de Agendamento (Seção 7)
+    - [x] Integrar com n8n/Google Sheets (placeholder funcional)
+  - [x] Criar componente: Rodapé (Seção 8)
+- [x] **Montagem da Página Principal do Novo Site**
+  - [x] Integrar todos os componentes na página principal (`app/page.tsx`).
+  - [x] Garantir a ordem correta das seções conforme blueprint.
+- [x] **Estilização e Responsividade do Novo Site**
+  - [x] Aplicar estilos dark mode, gradientes e elementos geométricos conforme blueprint.
+  - [x] Garantir responsividade completa (desktop, tablet, mobile).
+  - [x] Otimizar imagens e scripts para velocidade de carregamento.
+- [x] **Funcionalidades Adicionais do Novo Site**
+  - [x] Implementar animações leves (transições básicas).
+  - [x] Configurar SEO básico (estrutura HTML semântica).
+  - [x] Configurar pixels de rastreamento (placeholder/instrução, pois requer configuração externa).
+- [x] **Validação e Testes do Novo Site**
+  - [x] Testar todas as funcionalidades e links (revisão de código e lógica).
+  - [x] Validar responsividade em diferentes dispositivos/tamanhos de tela (revisão de classes responsivas e layout).
+  - [x] Revisar todo o conteúdo em conformidade com o blueprint (revisão textual e estrutural).
+- [ ] **Preparação para Entrega do Novo Site**
+  - [ ] Limpar código e remover arquivos desnecessários.
+  - [ ] Compactar o projeto completo (`agcplus-new-site`) em um arquivo .zip.
