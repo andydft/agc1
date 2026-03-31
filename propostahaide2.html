@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haidê – Proposta de Reposicionamento Estratégico</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C96A;
+  --gold-pale: #F5E4A8;
+  --gold-dim: rgba(201,168,76,0.12);
+  --gold-glow: rgba(201,168,76,0.25);
+  --dark: #07090E;
+  --dark2: #0C0F18;
+  --dark3: #111520;
+  --dark4: #161B28;
+  --text: #E8EDF5;
+  --muted: #68758F;
+  --muted2: #A8B4C8;
+  --line: rgba(201,168,76,0.18);
+  --line2: rgba(255,255,255,0.06);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito', sans-serif; background: var(--dark); color: var(--text); overflow-x: hidden; line-height: 1.6; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); border-radius: 3px; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 52px;
+  background: rgba(7,9,14,0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-brand { display: flex; align-items: center; gap: 10px; }
+.nav-logo-text { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: .18em; color: var(--gold); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .3s; font-weight: 500; }
+.nav-links a:hover { color: var(--gold); }
+.nav-pill { background: var(--gold); color: var(--dark); font-family: 'Nunito', sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .06em; padding: 8px 20px; border-radius: 100px; text-decoration: none; transition: all .3s; }
+.nav-pill:hover { background: var(--gold-light); box-shadow: 0 0 20px var(--gold-glow); }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 140px 52px 100px; position: relative; overflow: hidden; text-align: center; }
+.hero-bg-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero-content { position: relative; z-index: 2; }
+.badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--gold-dim); border-radius: 100px; padding: 7px 20px; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 32px; animation: fadeUp .9s ease both; font-weight: 600; }
+.badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 10px var(--gold); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+h1 { font-family: 'Nunito', sans-serif; font-size: clamp(3rem, 6.5vw, 6rem); font-weight: 800; line-height: 1.05; letter-spacing: -.02em; animation: fadeUp .9s .12s ease both; }
+h1 .accent { color: var(--gold); }
+h1 .outline { -webkit-text-stroke: 1.5px var(--gold); color: transparent; }
+.hero-sub { margin-top: 22px; font-size: 1.1rem; color: var(--muted2); max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.8; animation: fadeUp .9s .24s ease both; }
+.hero-sub strong { color: var(--text); font-weight: 600; }
+.hero-cta { margin-top: 52px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; animation: fadeUp .9s .36s ease both; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--dark); border: none; padding: 15px 34px; border-radius: 8px; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: .88rem; letter-spacing: .04em; cursor: pointer; transition: all .3s; text-decoration: none; }
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(201,168,76,.35); }
+.btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--text); border: 1px solid var(--line2); padding: 15px 34px; border-radius: 8px; font-family: 'Nunito', sans-serif; font-weight: 600; font-size: .88rem; letter-spacing: .04em; cursor: pointer; transition: all .3s; text-decoration: none; }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+.hero-author { margin-top: 28px; font-size: .8rem; color: var(--muted); letter-spacing: .08em; animation: fadeUp .9s .48s ease both; }
+
+/* STATS */
+.stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stat-item { padding: 44px 52px; border-right: 1px solid var(--line); cursor: default; transition: background .3s; display: flex; align-items: center; gap: 20px; position: relative; overflow: hidden; }
+.stat-item::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: scaleX(0); transition: transform .5s; }
+.stat-item:hover::after { transform: scaleX(1); }
+.stat-item:hover { background: var(--gold-dim); }
+.stat-item:last-child { border-right: none; }
+.stat-icon-wrap { flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px; border: 1px solid var(--line); background: var(--gold-dim); display: grid; place-items: center; }
+.stat-num { font-family: 'Nunito', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; color: var(--gold); display: block; line-height: 1; }
+.stat-label { font-size: .82rem; color: var(--muted); margin-top: 6px; font-weight: 400; }
+
+/* SECTIONS */
+.section-wrap { padding: 110px 52px; max-width: 1240px; margin: 0 auto; }
+.section-tag { display: inline-flex; align-items: center; gap: 8px; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 14px; }
+.section-tag::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+h2 { font-family: 'Nunito', sans-serif; font-size: clamp(1.9rem, 3.8vw, 3.2rem); font-weight: 800; line-height: 1.12; margin-bottom: 18px; }
+h2 .accent { color: var(--gold); }
+.section-lead { font-size: 1rem; color: var(--muted2); max-width: 600px; line-height: 1.8; }
+
+/* PROBLEMA */
+.problems-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-top: 68px; background: var(--line); border-radius: 16px; overflow: hidden; border: 1px solid var(--line); }
+.problem-card { background: var(--dark2); padding: 44px 40px; position: relative; overflow: hidden; transition: background .35s; }
+.problem-card:hover { background: var(--dark3); }
+.problem-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transform: scaleX(0); transform-origin: left; transition: transform .45s ease; }
+.problem-card:hover::before { transform: scaleX(1); }
+.problem-svg-wrap { width: 56px; height: 56px; border-radius: 14px; border: 1px solid var(--line); background: var(--gold-dim); display: grid; place-items: center; margin-bottom: 24px; transition: box-shadow .3s; }
+.problem-card:hover .problem-svg-wrap { box-shadow: 0 0 20px var(--gold-glow); }
+.problem-card h3 { font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+.problem-card p { font-size: .9rem; color: var(--muted2); line-height: 1.78; }
+
+/* SOLUÇÃO */
+.solution-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 68px; }
+.solution-block { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--dark2); transition: border-color .3s; }
+.solution-block:hover { border-color: rgba(201,168,76,.45); }
+.solution-header { background: linear-gradient(135deg, var(--gold-dim), transparent); border-bottom: 1px solid var(--line); padding: 28px 32px; display: flex; align-items: center; gap: 16px; }
+.solution-num { width: 38px; height: 38px; border-radius: 50%; background: var(--gold); color: var(--dark); display: grid; place-items: center; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .8rem; flex-shrink: 0; }
+.solution-header h3 { font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 700; }
+.solution-body { padding: 32px; }
+.check-list { list-style: none; }
+.check-list li { display: flex; gap: 12px; align-items: flex-start; font-size: .9rem; color: var(--muted2); padding: 9px 0; border-bottom: 1px solid var(--line2); line-height: 1.7; }
+.check-list li:last-child { border-bottom: none; }
+.check-icon { flex-shrink: 0; margin-top: 2px; }
+
+/* DIFERENCIAIS */
+.diff-section { background: var(--dark2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.diff-inner { max-width: 1240px; margin: 0 auto; padding: 100px 52px; }
+.diff-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; margin-top: 64px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.diff-card { background: var(--dark3); padding: 36px 28px; text-align: center; transition: background .3s; cursor: default; }
+.diff-card:hover { background: var(--dark4); }
+.diff-svg-ring { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 50%; border: 1px solid var(--line); background: var(--gold-dim); display: grid; place-items: center; transition: all .3s; }
+.diff-card:hover .diff-svg-ring { border-color: var(--gold); box-shadow: 0 0 20px var(--gold-glow); }
+.diff-card h4 { font-family: 'Nunito', sans-serif; font-size: .88rem; font-weight: 700; margin-bottom: 8px; }
+.diff-card p { font-size: .82rem; color: var(--muted); line-height: 1.7; }
+
+/* TIMELINE */
+.timeline { margin-top: 68px; position: relative; padding-left: 40px; }
+.timeline-line { position: absolute; left: 22px; top: 28px; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold) 0%, rgba(201,168,76,.1) 100%); }
+.tl-item { display: flex; gap: 36px; align-items: flex-start; padding-bottom: 52px; opacity: 0; transform: translateX(-24px); transition: all .65s ease; }
+.tl-item.visible { opacity: 1; transform: translateX(0); }
+.tl-icon-ring { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--gold); background: var(--dark2); display: grid; place-items: center; flex-shrink: 0; position: relative; z-index: 1; margin-left: -22px; transition: all .3s; }
+.tl-item:hover .tl-icon-ring { background: var(--gold-dim); box-shadow: 0 0 20px var(--gold-glow); }
+.tl-content { padding-top: 8px; }
+.tl-week { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; font-weight: 700; }
+.tl-content h3 { font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 9px; }
+.tl-content p { font-size: .9rem; color: var(--muted2); line-height: 1.78; max-width: 540px; }
+
+/* RETORNO */
+.ret-section { background: var(--dark); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+.ret-inner { max-width: 1240px; margin: 0 auto; padding: 110px 52px; position: relative; z-index: 1; }
+.ret-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 68px; }
+.ret-list { display: flex; flex-direction: column; gap: 18px; }
+.ret-item { display: flex; gap: 16px; align-items: flex-start; padding: 22px 26px; border-radius: 12px; border: 1px solid var(--line2); background: var(--dark2); transition: all .3s; }
+.ret-item:hover { border-color: var(--line); background: var(--dark3); }
+.ret-item-icon { width: 42px; height: 42px; border-radius: 10px; border: 1px solid var(--line); background: var(--gold-dim); display: grid; place-items: center; flex-shrink: 0; }
+.ret-item-text h4 { font-family: 'Nunito', sans-serif; font-size: .95rem; font-weight: 700; margin-bottom: 4px; }
+.ret-item-text p { font-size: .86rem; color: var(--muted2); line-height: 1.72; }
+.ret-result-card { border: 1px solid var(--gold); border-radius: 20px; padding: 52px 44px; text-align: center; background: linear-gradient(135deg, rgba(201,168,76,.07) 0%, transparent 60%); position: relative; overflow: hidden; }
+.ret-result-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 180px; height: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,.12), transparent 70%); pointer-events: none; }
+.ret-eyebrow { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; font-weight: 700; }
+.ret-big { font-family: 'Nunito', sans-serif; font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 800; color: var(--gold-light); line-height: 1; }
+.ret-divider { width: 40px; height: 1px; background: var(--gold); margin: 24px auto; opacity: .4; }
+.ret-note { font-size: .86rem; color: var(--muted); line-height: 1.78; }
+
+/* PRICING */
+.pricing-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 68px; max-width: 640px; }
+.price-card { border: 1px solid var(--line2); border-radius: 16px; padding: 44px 40px; background: var(--dark2); position: relative; transition: all .35s; cursor: pointer; }
+.price-card:hover { border-color: var(--line); transform: translateY(-4px); box-shadow: 0 24px 64px rgba(0,0,0,.4); }
+.price-card.featured { border-color: var(--gold); background: linear-gradient(145deg, rgba(201,168,76,.07) 0%, var(--dark2) 50%); }
+.price-badge { position: absolute; top: -13px; right: 28px; background: var(--gold); color: var(--dark); font-family: 'Nunito', sans-serif; font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 5px 16px; border-radius: 100px; }
+.price-option-label { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; font-weight: 700; }
+.price-amount { display: flex; align-items: flex-start; gap: 4px; margin-bottom: 10px; }
+.price-currency { font-family: 'Nunito', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--muted); padding-top: 10px; }
+.price-number { font-family: 'Nunito', sans-serif; font-size: 3rem; font-weight: 800; color: var(--text); line-height: 1; }
+.price-desc { font-size: .9rem; color: var(--muted2); margin-bottom: 32px; line-height: 1.78; }
+.price-list { list-style: none; }
+.price-list li { display: flex; gap: 12px; align-items: flex-start; font-size: .88rem; color: var(--muted2); padding: 9px 0; border-bottom: 1px solid var(--line2); line-height: 1.65; }
+.price-list li:last-child { border-bottom: none; }
+.price-check { flex-shrink: 0; margin-top: 1px; }
+
+/* STEPS */
+.steps-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 24px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.step-box { background: var(--dark2); padding: 28px 24px; text-align: center; }
+.step-num { font-family: 'Nunito', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+.step-box p { font-size: .84rem; color: var(--muted); line-height: 1.65; }
+
+/* CTA */
+.cta-section { text-align: center; padding: 130px 52px; position: relative; overflow: hidden; }
+.cta-bg-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.cta-inner { position: relative; z-index: 2; }
+.cta-quote { font-family: 'Nunito', sans-serif; font-size: clamp(1.3rem, 2.8vw, 1.8rem); font-weight: 700; line-height: 1.55; max-width: 760px; margin: 0 auto 52px; color: var(--text); }
+.cta-quote em { color: var(--gold); font-style: normal; }
+.cta-sub { margin-top: 22px; font-size: .84rem; color: var(--muted); letter-spacing: .06em; }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--line); padding: 28px 52px; display: flex; justify-content: space-between; align-items: center; }
+footer p { font-size: .82rem; color: var(--muted); }
+
+/* ANIMS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .diff-grid { grid-template-columns: repeat(2, 1fr); }
+  .diff-card:nth-child(5) { grid-column: span 2; }
+  .solution-layout, .ret-grid { grid-template-columns: 1fr; }
+  .problems-grid { grid-template-columns: 1fr; }
+  .steps-row { grid-template-columns: repeat(2, 1fr); }
+  nav { padding: 14px 24px; }
+  .nav-links { display: none; }
+  .section-wrap, .ret-inner, .diff-inner, .cta-section { padding: 80px 24px; }
+  .hero { padding: 120px 24px 80px; }
+  .stats-bar { grid-template-columns: 1fr; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--line); }
+  footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+  .method-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* MODAL */
+.modal-overlay { position: fixed; inset: 0; z-index: 1000; background: rgba(7,9,14,0.88); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .4s ease; padding: 24px; }
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal-box { background: var(--dark2); border: 1px solid var(--gold); border-radius: 24px; padding: 52px 48px; max-width: 480px; width: 100%; text-align: center; position: relative; transform: translateY(28px) scale(.96); transition: transform .5s cubic-bezier(.16,1,.3,1); overflow: hidden; }
+.modal-overlay.open .modal-box { transform: translateY(0) scale(1); }
+.modal-box::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,.13), transparent 70%); pointer-events: none; }
+.modal-star { font-size: 3rem; display: block; margin-bottom: 20px; animation: starPop .6s .15s cubic-bezier(.16,1,.3,1) both; }
+@keyframes starPop { from { transform: scale(0) rotate(-20deg); opacity: 0; } to { transform: scale(1) rotate(0deg); opacity: 1; } }
+.modal-title { font-family: 'Nunito', sans-serif; font-size: 2rem; font-weight: 900; color: var(--gold-light); margin-bottom: 12px; line-height: 1.15; }
+.modal-sub { font-size: .95rem; color: var(--muted2); line-height: 1.78; margin-bottom: 28px; }
+.modal-divider { width: 40px; height: 1px; background: var(--gold); opacity: .35; margin: 0 auto 28px; }
+.modal-msg { font-size: .9rem; color: var(--muted2); line-height: 1.8; margin-bottom: 10px; }
+.modal-date { font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: 36px; }
+.modal-btn-whats { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #25D366; color: #fff; border: none; padding: 16px 32px; border-radius: 10px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .95rem; cursor: pointer; width: 100%; text-decoration: none; transition: all .3s; margin-bottom: 12px; }
+.modal-btn-whats:hover { background: #1ebe5d; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,.3); }
+.modal-btn-close { background: transparent; border: none; color: var(--muted); font-family: 'Nunito', sans-serif; font-size: .82rem; cursor: pointer; padding: 8px; transition: color .3s; display: block; width: 100%; text-align: center; }
+.modal-btn-close:hover { color: var(--text); }
+.modal-footer { margin-top: 20px; font-size: .72rem; color: var(--muted); line-height: 1.65; opacity: .7; }
+
+/* METODOLOGIA */
+.method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 64px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.method-card { background: var(--dark3); padding: 36px 28px; text-align: center; transition: background .3s; cursor: default; }
+.method-card:hover { background: var(--dark4); }
+.method-svg-ring { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 50%; border: 1px solid var(--line); background: var(--gold-dim); display: grid; place-items: center; transition: all .3s; }
+.method-card:hover .method-svg-ring { border-color: var(--gold); box-shadow: 0 0 20px var(--gold-glow); }
+.method-card h4 { font-family: 'Nunito', sans-serif; font-size: .88rem; font-weight: 700; margin-bottom: 8px; }
+.method-card p { font-size: .82rem; color: var(--muted); line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <polygon points="14,2 26,8 26,20 14,26 2,20 2,8" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+      <polygon points="14,7 21,11 21,17 14,21 7,17 7,11" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width=".8"/>
+      <circle cx="14" cy="14" r="2.5" fill="#C9A84C"/>
+    </svg>
+    <span class="nav-logo-text">HAIDÊ</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#diagnostico">Diagnóstico</a></li>
+    <li><a href="#escopo">Escopo</a></li>
+    <li><a href="#metodologia">Metodologia</a></li>
+    <li><a href="#retorno">Retorno</a></li>
+    <li><a href="#investimento">Investimento</a></li>
+  </ul>
+  <a href="#investimento" class="nav-pill">Iniciar Projeto</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <svg class="hero-bg-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="heroGlow" cx="50%" cy="42%" r="55%">
+        <stop offset="0%" stop-color="#C9A84C" stop-opacity=".09"/>
+        <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+      </radialGradient>
+      <pattern id="heroGrid" width="80" height="80" patternUnits="userSpaceOnUse">
+        <path d="M80 0 L0 0 0 80" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width=".8"/>
+      </pattern>
+      <radialGradient id="maskGrad" cx="50%" cy="50%" r="55%">
+        <stop offset="0%" stop-color="white"/>
+        <stop offset="100%" stop-color="black"/>
+      </radialGradient>
+      <mask id="heroMask">
+        <rect width="1440" height="900" fill="url(#maskGrad)"/>
+      </mask>
+    </defs>
+    <rect width="1440" height="900" fill="url(#heroGrid)" mask="url(#heroMask)"/>
+    <rect width="1440" height="900" fill="url(#heroGlow)"/>
+    <circle cx="720" cy="420" r="300" fill="none" stroke="rgba(201,168,76,0.05)" stroke-width="1"/>
+    <circle cx="720" cy="420" r="220" fill="none" stroke="rgba(201,168,76,0.07)" stroke-width="1"/>
+    <circle cx="720" cy="420" r="140" fill="none" stroke="rgba(201,168,76,0.09)" stroke-width="1"/>
+    <path d="M0 0 L80 0 L0 80" fill="none" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+    <path d="M1440 0 L1360 0 L1440 80" fill="none" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+  </svg>
+  <div class="hero-content">
+    <div class="badge"><span class="badge-dot"></span>Proposta Estratégica · Personalizada · 2025</div>
+    <h1>Proposta de<br><span class="outline">Reposicionamento</span><br><span class="accent">Estratégico</span></h1>
+    <p class="hero-sub">Haidê tem <strong>30 anos de experiência</strong> e uma base de pacientes estabelecida. Nossa proposta é transformar essa trajetória em um posicionamento premium, <strong>menos volume, maior valor por sessão</strong>, agenda qualificada e crescimento sustentável.</p>
+    <div class="hero-cta">
+      <a href="#" onclick="abrirModal();return false;" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Quero Iniciar o Projeto
+      </a>
+      <a href="#diagnostico" class="btn-outline">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.4"/><path d="M8 5v3.5l2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Ver a Proposta
+      </a>
+    </div>
+    <p class="hero-author">Apresentado por Fred Rodrigues</p>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-icon-wrap">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <circle cx="13" cy="10" r="5" stroke="#C9A84C" stroke-width="1.4"/>
+        <path d="M5 22c0-4 3.58-7 8-7s8 3 8 7" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <span class="stat-num" data-count="30" data-suffix=" anos">0</span>
+      <p class="stat-label">De experiência profissional</p>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon-wrap">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M5 18 L9 13 L13 15 L18 8 L22 10" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M19 8h3v3" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div>
+      <span class="stat-num" data-count="5" data-suffix=" frentes">0</span>
+      <p class="stat-label">Áreas de atuação do projeto</p>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon-wrap">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <rect x="3" y="6" width="20" height="16" rx="2" stroke="#C9A84C" stroke-width="1.4"/>
+        <path d="M8 6V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v2" stroke="#C9A84C" stroke-width="1.4"/>
+        <path d="M9 14l2 2 5-5" stroke="#E8C96A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div>
+      <span class="stat-num" data-prefix="R$ " data-count="2800" data-suffix="">0</span>
+      <p class="stat-label">Investimento total no projeto</p>
+    </div>
+  </div>
+</div>
+
+<!-- DIAGNÓSTICO -->
+<div class="section-wrap" id="diagnostico">
+  <p class="section-tag fade-in">Diagnóstico Inicial</p>
+  <h2 class="fade-in">A oportunidade está <span class="accent">na trajetória</span></h2>
+  <p class="section-lead fade-in">Com base na nossa conversa, identificamos os pontos centrais que impedem a Haidê de cobrar o que realmente vale e o que precisa mudar para isso acontecer.</p>
+  <div class="problems-grid">
+    <div class="problem-card fade-in">
+      <div class="problem-svg-wrap">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect x="4" y="4" width="20" height="20" rx="3" stroke="#C9A84C" stroke-width="1.4"/>
+          <path d="M8 10h12M8 14h8M8 18h5" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Experiência não refletida no digital</h3>
+      <p>30 anos de carreira sólida, porém praticamente invisível no ambiente digital. O posicionamento atual não comunica o valor real da trajetória profissional da Haidê.</p>
+    </div>
+    <div class="problem-card fade-in">
+      <div class="problem-svg-wrap">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="10" r="5" stroke="#C9A84C" stroke-width="1.4"/>
+          <path d="M6 24c0-4.4 3.58-8 8-8s8 3.6 8 8" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M20 8l4-3M20 12l4 3" stroke="#E8C96A" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Presença digital desestruturada</h3>
+      <p>Instagram, LinkedIn e ausência de site formam uma presença fragmentada. Sem estrutura, a comunicação não gera autoridade nem atrai o perfil de paciente desejado.</p>
+    </div>
+    <div class="problem-card fade-in">
+      <div class="problem-svg-wrap">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M5 20L9 14l4 4 5-9 4 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="9" cy="14" r="2" fill="rgba(201,168,76,.3)"/>
+          <path d="M4 24h20M3 20V4" stroke="rgba(201,168,76,.35)" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Posicionamento abaixo do valor real</h3>
+      <p>O ticket médio atual não condiz com o nível de expertise. Sem reposicionamento estratégico, fica impossível transitar para uma agenda de menor volume e maior valor.</p>
+    </div>
+    <div class="problem-card fade-in">
+      <div class="problem-svg-wrap">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="9" stroke="#C9A84C" stroke-width="1.4"/>
+          <path d="M14 8.5v5.5l4 2.5" stroke="#E8C96A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Base de pacientes pouco explorada</h3>
+      <p>Há pacientes antigos que já confiam no trabalho da Haidê, mas nenhuma estratégia ativa de reativação existe. Uma fonte de receita imediata completamente ignorada.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ESCOPO -->
+<div class="diff-section" id="escopo">
+  <div class="diff-inner">
+    <p class="section-tag fade-in">Escopo do Projeto</p>
+    <h2 class="fade-in">Cinco frentes, <span class="accent">um resultado</span></h2>
+    <p class="section-lead fade-in">O projeto atua em cinco áreas integradas para garantir que o reposicionamento seja completo, do digital ao relacionamento com pacientes.</p>
+    <div class="diff-grid">
+      <div class="diff-card fade-in">
+        <div class="diff-svg-ring">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <circle cx="15" cy="12" r="5" stroke="#C9A84C" stroke-width="1.5"/>
+            <path d="M7 26c0-4.4 3.58-8 8-8s8 3.6 8 8" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M22 8l4-3M22 13l4 3" stroke="#E8C96A" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h4>Reposicionamento Estratégico</h4>
+        <p>Nicho, proposta de valor e comunicação premium definidos.</p>
+      </div>
+      <div class="diff-card fade-in">
+        <div class="diff-svg-ring">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <rect x="4" y="4" width="22" height="22" rx="4" stroke="#C9A84C" stroke-width="1.4"/>
+            <path d="M10 11h10M10 15h7M10 19h5" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h4>Estruturação Digital</h4>
+        <p>Instagram, LinkedIn e canais de contato organizados estrategicamente.</p>
+      </div>
+      <div class="diff-card fade-in">
+        <div class="diff-svg-ring">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <path d="M5 22L9 16l4 4 5-9 4 3" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="9" cy="16" r="2.2" fill="rgba(201,168,76,.3)"/>
+          </svg>
+        </div>
+        <h4>Estratégia de Conteúdo</h4>
+        <p>Pilares, publicações e direcionamento para construção de autoridade.</p>
+      </div>
+      <div class="diff-card fade-in">
+        <div class="diff-svg-ring">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <path d="M5 11c0-3.3 2.7-6 6-6s6 2.7 6 6-6 10-6 10S5 14.3 5 11z" stroke="#C9A84C" stroke-width="1.4"/>
+            <circle cx="11" cy="11" r="2" fill="rgba(201,168,76,.3)"/>
+            <path d="M20 19l6 6M20 25l6-6" stroke="#E8C96A" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h4>Reativação de Pacientes</h4>
+        <p>Base segmentada, mensagens personalizadas e retorno imediato.</p>
+      </div>
+      <div class="diff-card fade-in">
+        <div class="diff-svg-ring">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <path d="M15 4l3 6 7 1.5-5 5 1.2 7L15 20.5l-6.2 3 1.2-7L5 11.5 12 10z" fill="rgba(201,168,76,.12)" stroke="#C9A84C" stroke-width="1.4" stroke-linejoin="round"/>
+            <circle cx="15" cy="14" r="3" fill="rgba(201,168,76,.3)"/>
+          </svg>
+        </div>
+        <h4>Crescimento Sustentável</h4>
+        <p>Ticket elevado gradualmente, agenda qualificada e foco em qualidade.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DETALHAMENTO DO ESCOPO -->
+<div class="section-wrap" id="detalhamento">
+  <p class="section-tag fade-in">Entregas Detalhadas</p>
+  <h2 class="fade-in">O que será <span class="accent">executado</span></h2>
+  <p class="section-lead fade-in">Cada frente do projeto tem entregas claras e práticas, com foco direto no resultado final: uma agenda mais qualificada e maior receita por sessão.</p>
+  <div class="solution-layout">
+    <div class="solution-block fade-in">
+      <div class="solution-header">
+        <div class="solution-num">01</div>
+        <div>
+          <h3>Reposicionamento + Estruturação Digital</h3>
+          <p style="font-size:.78rem;color:var(--muted);margin-top:3px;font-family:'Nunito',sans-serif;">Identidade · Presença · Comunicação</p>
+        </div>
+      </div>
+      <div class="solution-body">
+        <p style="font-size:.9rem;color:var(--muted2);margin-bottom:22px;line-height:1.78">Definição do nicho prioritário, ajuste da proposta de valor e organização completa da presença digital para refletir o nível de expertise da Haidê.</p>
+        <ul class="check-list">
+          <li><svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.15)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Definição de nicho prioritário (ex: público LGBTQIA+)</li>
+          <li><svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.15)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Ajuste de proposta de valor e comunicação profissional</li>
+          <li><svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.15)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Direcionamento para posicionamento premium</li>
+          <li><svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.15)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Bio estratégica e organização de destaques no Instagram</li>
+          <li><svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.15)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Organização de canais de contato (WhatsApp e link de agendamento)</li>
+          <li><svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.15)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Definição de estrutura mínima de presença digital</li>
+        </ul>
+      </div>
+    </div>
+    <div class="solution-block fade-in">
+      <div class="solution-header">
+        <div class="solution-num">02</div>
+        <div>
+          <h3>Conteúdo + Reativação + Crescimento</h3>
+          <p style="font-size:.78rem;color:var(--muted);margin-top:3px;font-family:'Nunito',sans-serif;">Autoridade · Pacientes · Receita</p>
+        </div>
+      </div>
+      <div class="solution-body">
+        <p style="font-size:.9rem;color:var(--muted2);margin-bottom:22px;line-height:1.78">Estratégia de conteúdo para construção de autoridade, reativação dos pacientes existentes e estrutura para crescimento sustentável com ticket elevado.</p>
+        <ul class="check-list">
+          <li><svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.15)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Definição de pilares de conteúdo e planejamento de publicações</li>
+          <li><svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.15)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Direcionamento de temas estratégicos para autoridade</li>
+          <li><svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.15)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Estruturação e segmentação da base de contatos</li>
+          <li><svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.15)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Mensagens personalizadas de reativação para pacientes inativos</li>
+          <li><svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.15)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Estratégia para aumento gradual do ticket médio</li>
+          <li><svg class="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.15)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Organização da agenda com foco em qualidade e sustentabilidade</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- METODOLOGIA -->
+<div class="diff-section" id="metodologia">
+  <div class="diff-inner">
+    <p class="section-tag fade-in">Como Trabalhamos</p>
+    <h2 class="fade-in">Metodologia <span class="accent">prática</span></h2>
+    <p class="section-lead fade-in">Trabalho estratégico e prático com foco em resultado. Cada etapa é executada com acompanhamento próximo e ajustes contínuos conforme a evolução do projeto.</p>
+    <div class="method-grid">
+      <div class="method-card fade-in">
+        <div class="method-svg-ring">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <circle cx="15" cy="15" r="10" stroke="#C9A84C" stroke-width="1.4"/>
+            <path d="M10 15 Q12 10 15 10 Q18 10 20 15" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"/>
+            <circle cx="15" cy="18" r="2.5" fill="rgba(201,168,76,.3)" stroke="#C9A84C" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <h4>Diagnóstico Aprofundado</h4>
+        <p>Análise completa do cenário atual, pontos fortes e oportunidades de melhoria.</p>
+      </div>
+      <div class="method-card fade-in">
+        <div class="method-svg-ring">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <path d="M8 15l5 5 9-9" stroke="#E8C96A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="15" cy="15" r="10" stroke="#C9A84C" stroke-width="1.4"/>
+          </svg>
+        </div>
+        <h4>Implementação Prioritária</h4>
+        <p>Execução das melhorias com maior impacto no resultado final primeiro.</p>
+      </div>
+      <div class="method-card fade-in">
+        <div class="method-svg-ring">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <path d="M5 20L9 15l4 4 5-9 4 3" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 26h22M4 22V6" stroke="rgba(201,168,76,.4)" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h4>Acompanhamento Contínuo</h4>
+        <p>Monitoramento próximo da execução para garantir aderência à estratégia.</p>
+      </div>
+      <div class="method-card fade-in">
+        <div class="method-svg-ring">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <path d="M15 5l2.5 5 5.5 1-4 4 1 5.5L15 18l-5 2.5 1-5.5-4-4 5.5-1z" fill="rgba(201,168,76,.12)" stroke="#C9A84C" stroke-width="1.4" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h4>Ajustes e Expansão</h4>
+        <p>Otimização contínua com base nos resultados e definição dos próximos passos.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RETORNO ESPERADO -->
+<div class="ret-section" id="retorno">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="retGlow" cx="75%" cy="50%" r="40%">
+        <stop offset="0%" stop-color="#C9A84C" stop-opacity=".07"/>
+        <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="600" fill="url(#retGlow)"/>
+    <circle cx="1100" cy="300" r="220" fill="none" stroke="rgba(201,168,76,0.05)" stroke-width="1"/>
+    <circle cx="1100" cy="300" r="160" fill="none" stroke="rgba(201,168,76,0.07)" stroke-width="1"/>
+  </svg>
+  <div class="ret-inner">
+    <p class="section-tag fade-in">Retorno Esperado</p>
+    <h2 class="fade-in">O projeto se paga <span class="accent">rapidamente</span></h2>
+    <p class="section-lead fade-in">Pequenos ajustes no ticket médio já são suficientes para cobrir o investimento e gerar ganho financeiro relevante, sem precisar aumentar o volume de pacientes.</p>
+    <div class="ret-grid">
+      <div class="ret-list">
+        <div class="ret-item fade-in">
+          <div class="ret-item-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="8" r="4" stroke="#C9A84C" stroke-width="1.4"/>
+              <path d="M4 20c0-3.3 3.13-6 7-6s7 2.7 7 6" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M16 6l2-2M16 9l2 2" stroke="#E8C96A" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="ret-item-text">
+            <h4>Reativação de pacientes existentes</h4>
+            <p>Receita imediata com quem já conhece e confia no trabalho da Haidê, sem custo de aquisição.</p>
+          </div>
+        </div>
+        <div class="ret-item fade-in">
+          <div class="ret-item-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M4 16L8 11l4 3 5-8 4 2.5" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 8h3v3" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="ret-item-text">
+            <h4>Aumento do valor por sessão</h4>
+            <p>Reposicionamento estratégico que justifica e sustenta um ticket médio mais elevado.</p>
+          </div>
+        </div>
+        <div class="ret-item fade-in">
+          <div class="ret-item-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M11 4l2.5 5 5.5 1-4 4 1 5.5L11 17l-5 2.5 1-5.5-4-4 5.5-1z" fill="rgba(201,168,76,.12)" stroke="#C9A84C" stroke-width="1.3" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="ret-item-text">
+            <h4>Pacientes mais qualificados</h4>
+            <p>Posicionamento premium que atrai o perfil certo, reduzindo volume e aumentando qualidade.</p>
+          </div>
+        </div>
+        <div class="ret-item fade-in">
+          <div class="ret-item-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <rect x="3" y="4" width="16" height="14" rx="2" stroke="#C9A84C" stroke-width="1.4"/>
+              <path d="M7 9h8M7 13h5" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="ret-item-text">
+            <h4>Agenda sustentável e planejada</h4>
+            <p>Menos dependência de volume, mais previsibilidade e qualidade de vida profissional.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ret-result-card fade-in">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" style="margin:0 auto 24px;display:block">
+          <circle cx="40" cy="40" r="38" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+          <circle cx="40" cy="40" r="28" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
+          <circle cx="40" cy="40" r="18" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.2"/>
+          <path d="M30 40 L36 46 L50 32" stroke="#E8C96A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p class="ret-eyebrow">Exemplo de Retorno Rápido</p>
+        <div class="ret-big">+R$ 280/mês</div>
+        <div class="ret-divider"></div>
+        <p class="ret-note">Apenas <strong style="color:var(--text)">1 sessão a mais por semana</strong> com ticket R$ 70 acima do atual já cobre o investimento no primeiro mês.<br><br>A reativação de pacientes antigos pode gerar retorno ainda na primeira semana de ação.</p>
+        <div style="margin-top:28px;padding-top:24px;border-top:1px solid var(--line2)">
+          <p style="font-size:.78rem;color:var(--muted);line-height:1.7">O resultado real depende do cenário atual, mas o projeto é estruturado para se pagar rapidamente e gerar ganho recorrente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INVESTIMENTO -->
+<div class="section-wrap" id="investimento">
+  <p class="section-tag fade-in">Investimento</p>
+  <h2 class="fade-in">Um projeto, <span class="accent">resultado concreto</span></h2>
+  <p class="section-lead fade-in">Implantação completa com acompanhamento em todas as etapas. Custo previsível e retorno mensurável desde o início da execução.</p>
+  <div class="pricing-grid">
+    <div class="price-card featured fade-in">
+      <div class="price-badge">Proposta Personalizada</div>
+      <p class="price-option-label">Projeto Completo — Implementação</p>
+      <div class="price-amount">
+        <span class="price-currency">R$</span>
+        <span class="price-number">2.800</span>
+      </div>
+      <p class="price-desc">Projeto completo de reposicionamento e crescimento estratégico. Cobertura total das cinco frentes com acompanhamento próximo durante toda a execução.</p>
+      <ul class="price-list">
+        <li><svg class="price-check" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.2)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Reposicionamento estratégico e definição de nicho</li>
+        <li><svg class="price-check" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.2)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Otimização completa da presença digital</li>
+        <li><svg class="price-check" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.2)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Estratégia de conteúdo e pilares de autoridade</li>
+        <li><svg class="price-check" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.2)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Reativação estratégica de pacientes inativos</li>
+        <li><svg class="price-check" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.2)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Direcionamento para crescimento sustentável</li>
+        <li><svg class="price-check" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(201,168,76,.2)"/><path d="M5 8l2 2 4-4" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Acompanhamento contínuo e ajustes durante o projeto</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:52px;" class="fade-in">
+    <p class="section-tag" style="margin-bottom:20px">Próximos Passos</p>
+    <div class="steps-row">
+      <div class="step-box">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" style="margin:0 auto 12px;display:block">
+          <circle cx="18" cy="18" r="15" stroke="#C9A84C" stroke-width="1.3"/>
+          <path d="M11 18l5 5 9-9" stroke="#E8C96A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="step-num">01</div>
+        <p>Aprovação da proposta</p>
+      </div>
+      <div class="step-box">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" style="margin:0 auto 12px;display:block">
+          <rect x="6" y="4" width="24" height="28" rx="3" stroke="#C9A84C" stroke-width="1.3"/>
+          <path d="M12 13h12M12 18h8M12 23h5" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <div class="step-num">02</div>
+        <p>Assinatura digital do contrato</p>
+      </div>
+      <div class="step-box">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" style="margin:0 auto 12px;display:block">
+          <circle cx="18" cy="14" r="7" stroke="#C9A84C" stroke-width="1.3"/>
+          <path d="M10 28c0-4.4 3.58-8 8-8s8 3.6 8 8" stroke="#C9A84C" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <div class="step-num">03</div>
+        <p>Reunião de diagnóstico aprofundado</p>
+      </div>
+      <div class="step-box">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" style="margin:0 auto 12px;display:block">
+          <path d="M18 5l3.5 7 8 1.2-5.8 5.6 1.4 8L18 23.5l-7.1 3.3 1.4-8L6.3 13.2l8-1.2z" fill="rgba(201,168,76,.12)" stroke="#C9A84C" stroke-width="1.4" stroke-linejoin="round"/>
+          <circle cx="18" cy="16" r="3.5" fill="rgba(201,168,76,.3)"/>
+        </svg>
+        <div class="step-num">04</div>
+        <p>Início imediato da execução</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta-section">
+  <svg class="cta-bg-svg" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="ctaGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#C9A84C" stop-opacity=".06"/>
+        <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="1440" height="700" fill="url(#ctaGlow)"/>
+    <circle cx="720" cy="350" r="280" fill="none" stroke="rgba(201,168,76,0.04)" stroke-width="1"/>
+    <circle cx="720" cy="350" r="200" fill="none" stroke="rgba(201,168,76,0.06)" stroke-width="1"/>
+    <circle cx="720" cy="350" r="120" fill="none" stroke="rgba(201,168,76,0.08)" stroke-width="1"/>
+    <path d="M0 0 L60 0 L0 60" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+    <path d="M1440 700 L1380 700 L1440 640" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="1"/>
+  </svg>
+  <div class="cta-inner">
+    <svg width="52" height="40" viewBox="0 0 52 40" fill="none" style="margin:0 auto 28px;display:block;opacity:.35">
+      <path d="M0 40V22C0 9.9 6.4 2.7 19.2 0l2.4 4.8C15 7.2 11.6 11.6 11.2 18H22V40H0zM30 40V22C30 9.9 36.4 2.7 49.2 0l2.4 4.8C45 7.2 41.6 11.6 41.2 18H52V40H30z" fill="#C9A84C"/>
+    </svg>
+    <p class="cta-quote fade-in">
+      Hoje você vende <em>tempo e sessões</em>.<br>
+      Nossa proposta é transformar sua trajetória em<br><em>posicionamento premium</em> e cobrar o que você realmente vale.
+    </p>
+    <a href="#" onclick="abrirModal();return false;" class="btn-primary" style="font-size:.95rem;padding:17px 48px;">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Quero Iniciar o Projeto
+    </a>
+    <p class="cta-sub">Fred Rodrigues · Estratégia Digital e Reposicionamento</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div style="display:flex;align-items:center;gap:10px">
+    <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+      <polygon points="14,2 26,8 26,20 14,26 2,20 2,8" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+      <circle cx="14" cy="14" r="2.5" fill="#C9A84C"/>
+    </svg>
+    <p>Haidê – Proposta de Reposicionamento Estratégico</p>
+  </div>
+  <p>Confidencial · 2025</p>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in, .tl-item').forEach(el => io.observe(el));
+
+function animateCount(el) {
+  const target = +el.dataset.count;
+  const prefix = el.dataset.prefix || '';
+  const suffix = el.dataset.suffix || '';
+  const dur = 1800, start = performance.now();
+  const tick = now => {
+    const p = Math.min((now - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const cur = Math.round(target * ease);
+    if (target >= 1000) el.textContent = prefix + cur.toLocaleString('pt-BR') + suffix;
+    else el.textContent = prefix + cur + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); cio.unobserve(e.target); } });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+function abrirModal() {
+  document.getElementById('modalAceite').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function fecharModal() {
+  document.getElementById('modalAceite').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('modalAceite').addEventListener('click', function(e) {
+  if (e.target === this) fecharModal();
+});
+</script>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalAceite">
+  <div class="modal-box">
+    <span class="modal-star">✨</span>
+    <h3 class="modal-title">Que ótima decisão!</h3>
+    <p class="modal-sub">O reposicionamento da Haidê começa agora.<br>Uma mensagem e tudo se inicia.</p>
+    <div class="modal-divider"></div>
+    <p class="modal-msg">Fred está esperando para dar o próximo passo.<br><br>Guarde esta data:</p>
+    <p class="modal-date">O seu projeto começa agora. 🚀</p>
+    <a
+      href="https://wa.me/553299810509?text=Ol%C3%A1%20Fred%2C%20acabei%20de%20aceitar%20a%20proposta%20de%20Reposicionamento%20Estrat%C3%A9gico%20e%20gostaria%20de%20iniciar%20o%20projeto!"
+      target="_blank"
+      class="modal-btn-whats"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar com Fred pelo WhatsApp
+    </a>
+    <button class="modal-btn-close" onclick="fecharModal()">Fechar</button>
+    <p class="modal-footer">Nenhum pagamento é realizado nesta etapa.<br>Apenas o início de uma parceria.</p>
+  </div>
+</div>
+</body>
+</html>
