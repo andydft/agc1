@@ -170,26 +170,6 @@ h2 .accent { color: var(--gold); }
 .step-num { font-family: 'Nunito', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--gold); line-height: 1; margin-bottom: 8px; }
 .step-box p { font-size: .84rem; color: var(--muted); line-height: 1.65; }
 
-/* GARANTIA */
-.guarantee-section { background: var(--dark2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
-.guarantee-inner { max-width: 1240px; margin: 0 auto; padding: 100px 52px; position: relative; z-index: 1; }
-.guarantee-card { border: 1px solid var(--gold); border-radius: 24px; padding: 64px 60px; background: linear-gradient(135deg, rgba(201,168,76,0.06) 0%, transparent 55%); position: relative; overflow: hidden; }
-.guarantee-card::before { content: ''; position: absolute; top: -100px; right: -100px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.09), transparent 70%); pointer-events: none; }
-.guarantee-header { display: flex; align-items: center; gap: 24px; margin-bottom: 40px; }
-.guarantee-shield { width: 72px; height: 72px; border-radius: 18px; border: 1px solid var(--gold); background: rgba(201,168,76,0.1); display: grid; place-items: center; flex-shrink: 0; box-shadow: 0 0 30px rgba(201,168,76,0.15); }
-.guarantee-eyebrow { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
-.guarantee-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--gold); display: inline-block; }
-.guarantee-title { font-family: 'Nunito', sans-serif; font-size: clamp(1.4rem, 2.8vw, 2rem); font-weight: 800; line-height: 1.15; color: var(--text); margin: 0; }
-.guarantee-title .accent { color: var(--gold); }
-.guarantee-body { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
-.guarantee-text p { font-size: .95rem; color: var(--muted2); line-height: 1.85; margin-bottom: 20px; }
-.guarantee-text p strong { color: var(--gold-light); font-weight: 700; }
-.guarantee-text p:last-child { margin-bottom: 0; }
-.guarantee-conditions { display: flex; flex-direction: column; gap: 14px; }
-.guarantee-conditions-title { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 4px; }
-.guarantee-cond-item { display: flex; gap: 14px; align-items: flex-start; background: rgba(201,168,76,0.05); border: 1px solid rgba(201,168,76,0.14); border-radius: 10px; padding: 14px 18px; font-size: .86rem; color: var(--muted2); line-height: 1.65; }
-.guarantee-stamp { display: inline-flex; align-items: center; gap: 10px; margin-top: 24px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); border-radius: 100px; padding: 10px 24px; font-size: .8rem; font-weight: 700; color: var(--gold-light); letter-spacing: .06em; }
-
 /* CTA */
 .cta-section { text-align: center; padding: 130px 52px; position: relative; overflow: hidden; }
 .cta-bg-svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
@@ -215,14 +195,11 @@ footer p { font-size: .82rem; color: var(--muted); }
   .steps-row { grid-template-columns: repeat(2, 1fr); }
   nav { padding: 14px 24px; }
   .nav-links { display: none; }
-  .section-wrap, .ret-inner, .diff-inner, .cta-section, .guarantee-inner { padding: 80px 24px; }
+  .section-wrap, .ret-inner, .diff-inner, .cta-section { padding: 80px 24px; }
   .hero { padding: 120px 24px 80px; }
   .stats-bar { grid-template-columns: 1fr; }
   .stat-item { border-right: none; border-bottom: 1px solid var(--line); }
   footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
-  .guarantee-card { padding: 40px 28px; }
-  .guarantee-body { grid-template-columns: 1fr; gap: 32px; }
-  .guarantee-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .method-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -273,7 +250,6 @@ footer p { font-size: .82rem; color: var(--muted); }
     <li><a href="#metodologia">Metodologia</a></li>
     <li><a href="#retorno">Retorno</a></li>
     <li><a href="#investimento">Investimento</a></li>
-    <li><a href="#garantia">Garantia</a></li>
   </ul>
   <a href="#investimento" class="nav-pill">Iniciar Projeto</a>
 </nav>
@@ -725,58 +701,6 @@ footer p { font-size: .82rem; color: var(--muted); }
         </svg>
         <div class="step-num">04</div>
         <p>Início imediato da execução</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- GARANTIA -->
-<div class="guarantee-section" id="garantia">
-  <div class="guarantee-inner">
-    <div class="guarantee-card fade-in">
-      <div class="guarantee-header">
-        <div class="guarantee-shield">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-            <path d="M18 4L6 9v9c0 7.18 5.16 13.9 12 15.5C24.84 31.9 30 25.18 30 18V9L18 4z" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1.5" stroke-linejoin="round"/>
-            <path d="M13 18l3.5 3.5 6.5-7" stroke="#E8C96A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div>
-          <p class="guarantee-eyebrow">Compromisso com Resultado</p>
-          <h2 class="guarantee-title">Garantia de <span class="accent">Comprometimento Total</span></h2>
-        </div>
-      </div>
-      <div class="guarantee-body">
-        <div class="guarantee-text">
-          <p>A Haidê estará iniciando um <strong>Projeto Estratégico Personalizado</strong> com metodologia clara, entregas definidas e acompanhamento próximo em todas as etapas de execução.</p>
-          <p>Confiamos profundamente no processo quando executado com dedicação mútua. O projeto é estruturado com base em <strong>experiência real de reposicionamento</strong> e estratégias validadas no mercado de saúde e bem-estar.</p>
-          <p>Nosso compromisso é com <strong>resultado concreto e mensurável</strong> — não apenas com a entrega técnica. Se ao final do projeto não houver nenhuma evolução mensurável no posicionamento ou na geração de retorno, <strong>o valor investido será integralmente devolvido.</strong></p>
-        </div>
-        <div class="guarantee-conditions">
-          <p class="guarantee-conditions-title">Condições para ativação da garantia</p>
-          <div class="guarantee-cond-item">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C9A84C" stroke-width="1.2"/><path d="M6 9l2 2 4-4" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Participação ativa e disponibilidade nas reuniões e etapas do projeto
-          </div>
-          <div class="guarantee-cond-item">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C9A84C" stroke-width="1.2"/><path d="M6 9l2 2 4-4" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Aprovação e implementação das otimizações digitais indicadas
-          </div>
-          <div class="guarantee-cond-item">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C9A84C" stroke-width="1.2"/><path d="M6 9l2 2 4-4" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Execução da estratégia de reativação de pacientes conforme orientado
-          </div>
-          <div class="guarantee-cond-item">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C9A84C" stroke-width="1.2"/><path d="M6 9l2 2 4-4" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Cumprimento do cronograma e etapas acordadas em conjunto
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:40px;padding-top:36px;border-top:1px solid rgba(201,168,76,0.18);text-align:center;">
-        <div class="guarantee-stamp">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L4 5v4c0 3.18 2.29 6.16 4 6.75C9.71 15.16 12 12.18 12 9V5L8 2z" fill="rgba(201,168,76,0.2)" stroke="#C9A84C" stroke-width="1.2"/><path d="M6 8.5l1.5 1.5 3-3" stroke="#E8C96A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Garantia de Reembolso Total · Fred Rodrigues
-        </div>
       </div>
     </div>
   </div>
